@@ -23,17 +23,25 @@ const NavBar = () => {
 
       <IconButton
         onPress={() => {
-          navigation.navigate("Login");
+          navigation.navigate("Diary");
         }}
       >
         <DiaryIcon source={diaryIcon} />
       </IconButton>
 
-      <IconButton>
+      <IconButton
+        onPress={() => {
+          navigation.navigate("Recipes");
+        }}
+      >
         <Icon source={recipesIcon} />
       </IconButton>
 
-      <IconButton>
+      <IconButton
+        onPress={() => {
+          navigation.navigate("Profile");
+        }}
+      >
         <Icon source={profileIcon} />
       </IconButton>
     </Container>
