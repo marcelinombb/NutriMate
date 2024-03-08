@@ -4,16 +4,14 @@
     "slug": "nutrimate",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/nutrimate-icon.png",
+    "icon": "./assets/icons/nutrimate-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/SplashScreen.png",
+      "image": "./assets/images/SplashScreen.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
