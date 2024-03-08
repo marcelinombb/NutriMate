@@ -1,12 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { Text } from "react-native";
+import React from "react";
+import NavBar from "../../components/common/NavBar";
+import { Container } from "./styles";
 
 const Login = () => {
   return (
-    <View>
+    <Container>
       <Text>Login</Text>
-    </View>
-  )
-}
+      <NavBar />
+    </Container>
+  );
+};
 
-export default Login
+export default Login;
