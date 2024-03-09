@@ -1,12 +1,22 @@
 import React from "react";
 import NavBar from "../../components/common/NavBar";
-import { Container } from "./styles";
-import DefaultTitle from "../../components/common/DefaultTitle";
+import { Container, Greeting, GreetingUser, NutritionTipTitle, NutritionTip, NutritionTipContent, Welcome } from "./styles";
+import NutritionTipList from "./NutritionTipList";
 
 const Home = () => {
   return (
     <Container>
-      <DefaultTitle fontSize={20} title="Home" />
+        <Greeting>
+          <Welcome>Welcome Back!</Welcome>
+          <GreetingUser>Hi, User</GreetingUser>
+        </Greeting>
+        <NutritionTip>
+          <NutritionTipTitle>Nutrition Tips</NutritionTipTitle>
+          <NutritionTipContent>
+            Hey buddy! It’s a sunny day. Why don’t you get your shoes on and go running outside?
+          </NutritionTipContent>
+        </NutritionTip>
+        <NutritionTipList/>
       <NavBar />
     </Container>
   );
