@@ -1,7 +1,7 @@
-import React from "react";
-import NavBar from "../../components/common/NavBar";
-import { Container } from "./styles";
-import DefaultTitle from "../../components/common/DefaultTitle";
+import React from 'react'
+import NavBar from '../../components/common/NavBar'
+import { Container } from './styles'
+import DefaultTitle from '../../components/common/DefaultTitle'
 
 const Login = () => {
   return (
@@ -9,7 +9,7 @@ const Login = () => {
       <DefaultTitle fontSize={20} title="Login" />
       <NavBar />
     </Container>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

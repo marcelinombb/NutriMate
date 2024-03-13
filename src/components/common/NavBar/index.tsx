@@ -1,21 +1,21 @@
-import React from "react";
-import { Container, DiaryIcon, Icon, IconButton } from "./styles";
-import { useNavigation } from "@react-navigation/native";
-import { PropsStack } from "../../../routes";
+import React from 'react'
+import { Container, DiaryIcon, Icon, IconButton } from './styles'
+import { useNavigation } from '@react-navigation/native'
+import { type PropsStack } from '../../../routes'
 
-const homeIcon = require("../../../../assets/icons/home-icon-p.png");
-const diaryIcon = require("../../../../assets/icons/diary-icon-p.png");
-const recipesIcon = require("../../../../assets/icons/recipes-icon-p.png");
-const profileIcon = require("../../../../assets/icons/profile-icon-p.png");
+import homeIcon from '../../../../assets/icons/home-icon-p.png'
+import diaryIcon from '../../../../assets/icons/diary-icon-p.png'
+import recipesIcon from '../../../../assets/icons/recipes-icon-p.png'
+import profileIcon from '../../../../assets/icons/profile-icon-p.png'
 
 const NavBar = () => {
-  const navigation = useNavigation<PropsStack>();
+  const navigation = useNavigation<PropsStack>()
 
   return (
     <Container>
       <IconButton
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate('Home')
         }}
       >
         <Icon source={homeIcon} />
@@ -23,7 +23,7 @@ const NavBar = () => {
 
       <IconButton
         onPress={() => {
-          navigation.navigate("Diary");
+          navigation.navigate('Diary')
         }}
       >
         <DiaryIcon source={diaryIcon} />
@@ -31,7 +31,7 @@ const NavBar = () => {
 
       <IconButton
         onPress={() => {
-          navigation.navigate("Recipes");
+          navigation.navigate('Recipes')
         }}
       >
         <Icon source={recipesIcon} />
@@ -39,13 +39,13 @@ const NavBar = () => {
 
       <IconButton
         onPress={() => {
-          navigation.navigate("Profile");
+          navigation.navigate('Profile')
         }}
       >
         <Icon source={profileIcon} />
       </IconButton>
     </Container>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

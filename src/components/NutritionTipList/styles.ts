@@ -1,7 +1,7 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native'
 
-type ChallengeBackground = {
-    width: number;
+interface ChallengeBackground {
+  width: number
 }
 
 export const ChallengeCard = styled.View<ChallengeBackground>`

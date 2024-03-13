@@ -1,7 +1,7 @@
-import React from "react";
-import NavBar from "../../components/common/NavBar";
-import { Container } from "./styles";
-import DefaultTitle from "../../components/common/DefaultTitle";
+import React from 'react'
+import NavBar from '../../components/common/NavBar'
+import { Container } from './styles'
+import DefaultTitle from '../../components/common/DefaultTitle'
 
 const Diary = () => {
   return (
@@ -9,7 +9,7 @@ const Diary = () => {
       <DefaultTitle fontSize={20} title="Diary" />
       <NavBar />
     </Container>
-  );
-};
+  )
+}
 
-export default Diary;
+export default Diary
