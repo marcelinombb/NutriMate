@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react'
 import {
-  NativeStackNavigationProp,
-  createNativeStackNavigator,
-} from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import Login from "../pages/Login";
-import Home from "../pages/Home";
-import Profile from "../pages/Profile";
-import Recipes from "../pages/Recipes";
-import Diary from "../pages/Diary";
+  type NativeStackNavigationProp,
+  createNativeStackNavigator
+} from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
+import Login from '../pages/Login'
+import Home from '../pages/Home'
+import Profile from '../pages/Profile'
+import Recipes from '../pages/Recipes'
+import Diary from '../pages/Diary'
 
-export type PropsNavigationStack = {
-  Login: undefined;
-  Home: undefined;
-  Diary: undefined;
-  Recipes: undefined;
-  Profile: undefined;
-};
+export interface PropsNavigationStack {
+  Login: undefined
+  Home: undefined
+  Diary: undefined
+  Recipes: undefined
+  Profile: undefined
+}
 
-const Stack = createNativeStackNavigator();
-export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>;
+const Stack = createNativeStackNavigator()
+export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>
 
 const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: false
         }}
       >
         <Stack.Screen name="Login" component={Login} />
@@ -36,7 +36,7 @@ const Routes = () => {
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

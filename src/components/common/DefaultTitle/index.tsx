@@ -1,9 +1,9 @@
-import React from "react";
-import { Container, Title } from "./styles";
+import React from 'react'
+import { Container, Title } from './styles'
 
 interface TitleProps {
-  fontSize: number;
-  title: string;
+  fontSize: number
+  title: string
 }
 
 const DefaultTitle = ({ fontSize, title }: TitleProps) => {
@@ -11,7 +11,7 @@ const DefaultTitle = ({ fontSize, title }: TitleProps) => {
     <Container>
       <Title fontSize={fontSize}>{title}</Title>
     </Container>
-  );
-};
+  )
+}
 
-export default DefaultTitle;
+export default DefaultTitle

@@ -1,15 +1,43 @@
-import React from "react";
-import NavBar from "../../components/common/NavBar";
-import { Container } from "./styles";
-import DefaultTitle from "../../components/common/DefaultTitle";
+import React from 'react'
+import NavBar from '../../components/common/NavBar'
+import {
+  Container,
+  Greeting,
+  GreetingUser,
+  NutritionTipTitle,
+  NutritionTip,
+  NutritionTipContent,
+  Welcome
+} from './styles'
+import NutritionTipList from '../../components/NutritionTipList'
+import { TouchableOpacity, View, Image } from 'react-native'
+import notify from '../../../assets/icons/notify-icon.png'
+import perfil from '../../../assets/icons/perfil.png'
 
 const Home = () => {
   return (
     <Container>
-      <DefaultTitle fontSize={20} title="Home" />
+      <Greeting>
+        <View>
+          <Welcome>Welcome Back!</Welcome>
+          <GreetingUser>Hi, User</GreetingUser>
+        </View>
+        <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
+          <TouchableOpacity><Image source={notify} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+          <TouchableOpacity><Image source={perfil} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+        </View>
+      </Greeting>
+      <NutritionTip>
+        <NutritionTipTitle>Nutrition Tips</NutritionTipTitle>
+        <NutritionTipContent>
+          Hey buddy! It’s a sunny day. Why don’t you get your shoes on and go
+          running outside?
+        </NutritionTipContent>
+      </NutritionTip>
+      <NutritionTipList />
       <NavBar />
     </Container>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

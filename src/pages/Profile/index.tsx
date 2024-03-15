@@ -1,7 +1,7 @@
-import React from "react";
-import NavBar from "../../components/common/NavBar";
-import { Container } from "./styles";
-import DefaultTitle from "../../components/common/DefaultTitle";
+import React from 'react'
+import NavBar from '../../components/common/NavBar'
+import { Container } from './styles'
+import DefaultTitle from '../../components/common/DefaultTitle'
 
 const Profile = () => {
   return (
@@ -9,7 +9,7 @@ const Profile = () => {
       <DefaultTitle fontSize={20} title="Profile" />
       <NavBar />
     </Container>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
