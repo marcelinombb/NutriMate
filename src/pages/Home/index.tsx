@@ -10,13 +10,22 @@ import {
   Welcome
 } from './styles'
 import NutritionTipList from '../../components/NutritionTipList'
+import { TouchableOpacity, View, Image } from 'react-native'
+import notify from '../../../assets/icons/notify-icon.png'
+import perfil from '../../../assets/icons/perfil.png'
 
 const Home = () => {
   return (
     <Container>
       <Greeting>
-        <Welcome>Welcome Back!</Welcome>
-        <GreetingUser>Hi, User</GreetingUser>
+        <View>
+          <Welcome>Welcome Back!</Welcome>
+          <GreetingUser>Hi, User</GreetingUser>
+        </View>
+        <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
+          <TouchableOpacity><Image source={notify} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+          <TouchableOpacity><Image source={perfil} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+        </View>
       </Greeting>
       <NutritionTip>
         <NutritionTipTitle>Nutrition Tips</NutritionTipTitle>

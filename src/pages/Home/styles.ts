@@ -6,6 +6,10 @@ export const Container = styled.View`
 `
 
 export const Greeting = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20%;
   padding: 0 20px;
 `
