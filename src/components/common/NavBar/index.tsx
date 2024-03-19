@@ -1,12 +1,9 @@
 import React from 'react'
-import { Container, DiaryIcon, Icon, IconButton } from './styles'
+import { Container, Icon, IconButton } from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { type PropsStack } from '../../../routes'
 
-import homeIcon from '../../../../assets/icons/home-icon-p.png'
-import diaryIcon from '../../../../assets/icons/diary-icon-p.png'
-import recipesIcon from '../../../../assets/icons/recipes-icon-p.png'
-import profileIcon from '../../../../assets/icons/profile-icon-p.png'
+import { HomeIcon, DiaryIcon, RecipesIcon, ProfileIcon } from '@icons'
 
 const NavBar = () => {
   const navigation = useNavigation<PropsStack>()
@@ -18,7 +15,7 @@ const NavBar = () => {
           navigation.navigate('Home')
         }}
       >
-        <Icon source={homeIcon} />
+        <Icon source={HomeIcon} />
       </IconButton>
 
       <IconButton
@@ -26,7 +23,7 @@ const NavBar = () => {
           navigation.navigate('Diary')
         }}
       >
-        <DiaryIcon source={diaryIcon} />
+        <Icon source={DiaryIcon} />
       </IconButton>
 
       <IconButton
@@ -34,7 +31,7 @@ const NavBar = () => {
           navigation.navigate('Recipes')
         }}
       >
-        <Icon source={recipesIcon} />
+        <Icon source={RecipesIcon} />
       </IconButton>
 
       <IconButton
@@ -42,7 +39,7 @@ const NavBar = () => {
           navigation.navigate('Profile')
         }}
       >
-        <Icon source={profileIcon} />
+        <Icon source={ProfileIcon} />
       </IconButton>
     </Container>
   )

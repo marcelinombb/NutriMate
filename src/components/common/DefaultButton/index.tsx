@@ -1,28 +1,28 @@
-import React from "react";
-import { ButtonContainer, Title } from "./styles";
+import React from 'react'
+import { ButtonContainer, Title } from './styles'
 
 interface ButtonProps {
-  backgroundColor: string;
-  text: string;
-  marginVertical: number;
-  buttonHandle: Function;
+  backgroundColor: string
+  text: string
+  marginVertical: number
+  buttonHandle: () => void
 }
 
 const DefaultButton = ({
   backgroundColor,
   text,
   marginVertical,
-  buttonHandle,
+  buttonHandle
 }: ButtonProps) => {
   return (
     <ButtonContainer
       backgroundColor={backgroundColor}
       marginVertical={marginVertical}
-      onPress={() => buttonHandle()}
+      onPress={() => { buttonHandle() }}
     >
       <Title>{text}</Title>
     </ButtonContainer>
-  );
-};
+  )
+}
 
-export default DefaultButton;
+export default DefaultButton
