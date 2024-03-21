@@ -10,7 +10,8 @@ import Profile from '../pages/Profile'
 import Recipes from '../pages/Recipes'
 import Diary from '../pages/Diary'
 
-export interface PropsNavigationStack {
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export type PropsNavigationStack = {
   Login: undefined
   Home: undefined
   Diary: undefined
@@ -18,7 +19,7 @@ export interface PropsNavigationStack {
   Profile: undefined
 }
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<PropsNavigationStack>()
 export type PropsStack = NativeStackNavigationProp<PropsNavigationStack>
 
 const Routes = () => {

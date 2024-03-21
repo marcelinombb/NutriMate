@@ -16,12 +16,8 @@ import {
   ChallengeTitle
 } from './styles'
 
-import sugarweek from '../../../assets/images/sugarweek.png'
-import cleanprotein from '../../../assets/images/cleanprotein.png'
-import fullhidration from '../../../assets/images/fullhidration.png'
-
-import durationIcon from '../../../assets/icons/time-w.png'
-import difficultyIcon from '../../../assets/icons/calories-w.png'
+import { SugarWeek, CleanProtein, FullHidration } from '@images'
+import { TimeIcon, CaloriesIcon } from '@icons'
 
 const { width } = Dimensions.get('window')
 
@@ -37,19 +33,19 @@ const Challenges: Challenge[] = [
     title: 'Sugar Week',
     duration: 7,
     difficulty: 'Easy',
-    background: sugarweek
+    background: SugarWeek
   },
   {
     title: 'Clean Protein Day',
     duration: 30,
     difficulty: 'Medium',
-    background: cleanprotein
+    background: CleanProtein
   },
   {
     title: 'Full Hidration',
     duration: 7,
     difficulty: 'Hard',
-    background: fullhidration
+    background: FullHidration
   }
 ]
 
@@ -72,11 +68,11 @@ const NutritionTipList = () => {
           >
             <ChallengeTitle>{item.title}</ChallengeTitle>
             <ChallengeDesc>
-              <ChallengeDescIcon source={durationIcon}/>
+              <ChallengeDescIcon source={TimeIcon}/>
               <ChallengeDescTitle>{item.duration} days</ChallengeDescTitle>
             </ChallengeDesc>
             <ChallengeDesc>
-              <ChallengeDescIcon source={difficultyIcon}/>
+              <ChallengeDescIcon source={CaloriesIcon}/>
               <ChallengeDescTitle>{item.difficulty}</ChallengeDescTitle>
               </ChallengeDesc>
             <ChallengeMoreButton>

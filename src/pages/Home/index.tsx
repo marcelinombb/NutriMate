@@ -11,8 +11,7 @@ import {
 } from './styles'
 import NutritionTipList from '../../components/NutritionTipList'
 import { TouchableOpacity, View, Image } from 'react-native'
-import notify from '../../../assets/icons/notify-icon.png'
-import perfil from '../../../assets/icons/perfil.png'
+import { NotifyIcon, PerfilIcon } from '@icons'
 
 const Home = () => {
   return (
@@ -23,8 +22,8 @@ const Home = () => {
           <GreetingUser>Hi, User</GreetingUser>
         </View>
         <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
-          <TouchableOpacity><Image source={notify} style={{ width: 48, height: 48 }}/></TouchableOpacity>
-          <TouchableOpacity><Image source={perfil} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+          <TouchableOpacity><Image source={NotifyIcon} style={{ width: 48, height: 48 }}/></TouchableOpacity>
+          <TouchableOpacity><Image source={PerfilIcon} style={{ width: 48, height: 48 }}/></TouchableOpacity>
         </View>
       </Greeting>
       <NutritionTip>
