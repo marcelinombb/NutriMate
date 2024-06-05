@@ -28,7 +28,7 @@ const images = [
 const Login = () => {
   const navigation = useNavigation<PropsStack>()
   return (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center' }}>
       <View style={{ position: 'absolute', height: '100%', zIndex: 100 }}>
         <IconContainer>
           <LogoIcon source={NutrimateIcon} />
