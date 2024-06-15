@@ -9,7 +9,9 @@ import {
 import DefaultButton from '../../components/common/DefaultButton'
 import { useNavigation } from '@react-navigation/native'
 import { type PropsStack } from '../../routes'
-import { NutrimateIcon, NutrimateIconName, CallToActionIcon } from '@icons'
+import NutrimateIcon from '@icons/nutrimate-icon.png'
+import NutrimateIconName from '@icons/nutrimate-type.png'
+import CallToActionIcon from '@icons/motto-text.png'
 import Carousel from 'src/components/CarouselLogin'
 import { View } from 'react-native'
 

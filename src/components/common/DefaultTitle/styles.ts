@@ -7,7 +7,7 @@ interface TitleProps {
 export const Container = styled.View`
   align-items: center;
   justify-content: center;
-  margin: 60px 20px;
+  margin: 50px auto 30px;
 `
 
 export const Title = styled.Text<TitleProps>`

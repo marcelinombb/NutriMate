@@ -16,9 +16,11 @@ import {
   ChallengeTitle
 } from './styles'
 
-import { SugarWeek, CleanProtein, FullHidration } from '@images'
-import { TimeIcon, CaloriesIcon } from '@icons'
-
+import SugarWeek from '@images/sugarweek.png'
+import CleanProtein from '@images/cleanprotein.png'
+import FullHidration from '@images/fullhidration.png'
+import TimeIcon from '@icons/time-w.png'
+import CaloriesIcon from '@icons/calories-w.png'
 const { width } = Dimensions.get('window')
 
 interface Challenge {
