@@ -29,7 +29,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "^7.24.7",
     "@types/react": "~18.2.45",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "babel-plugin-module-resolver": "^5.0.2",
@@ -39,9 +39,9 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-native": "^4.1.0",
     "typescript": "~5.3.3"
   },
