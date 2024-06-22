@@ -4,9 +4,7 @@ import { Container } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
 import RecipeCard from 'src/components/RecipeCard'
-import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
 import meal from '@images/fullhidration.png'
-import PlusCircleIcon from '@icons/plusCircle.png'
 import { MealPhoto } from 'src/components/RecipeCard/styles'
 
 const Recipes = () => {

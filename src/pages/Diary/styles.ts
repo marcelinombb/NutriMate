@@ -5,11 +5,11 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.background};
 `
 export const IndicatorContainer = styled.View`
-  display: flex; 
+  display: flex;
   margin: 20px 10px;
   align-items: center;
-  flex-direction: row; 
-  justify-content: space-around
+  flex-direction: row;
+  justify-content: space-around;
 `
 export const Section = styled.View`
   display: flex;
