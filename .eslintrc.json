@@ -13,9 +13,20 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint", "react", "react-native"
+        "@typescript-eslint", "react", "react-native", "import"
+        
     ],
     "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off"
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "import/no-duplicates": ["error", {"prefer-inline": true}]
+    },
+    "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "alias": {
+          "@icons": "./assets/icons"
+        }
+      }
     }
+  }
 }

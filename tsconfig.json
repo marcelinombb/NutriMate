@@ -2,16 +2,14 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
-      //exposing the exports of the avatars index file
-      "@icons": [
-        "assets/icons/index"
-      ],
-      "@images": [
-        "assets/images/index"
-      ]
+      "@icons/*": ["./assets/icons/*"],
+      "@images/*": ["./assets/images/*"]
     },
     "jsx": "react",
     "strict": true
-  }
+  },
+
+  "exclude": ["node_modules", "babel.config.js"]
 }

@@ -11,7 +11,8 @@ import {
 } from './styles'
 import NutritionTipList from '../../components/NutritionTipList'
 import { TouchableOpacity, View, Image } from 'react-native'
-import { NotifyIcon, PerfilIcon } from '@icons'
+import NotifyIcon from '@icons/notification.png'
+import PerfilIcon from '@icons/perfil.png'
 
 const Home = () => {
   return (

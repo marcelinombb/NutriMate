@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+
 import { Container, ProductImage } from './styles'
 import { Dimensions, FlatList, type ListRenderItem } from 'react-native'
 

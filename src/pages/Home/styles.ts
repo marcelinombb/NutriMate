@@ -37,7 +37,7 @@ export const NutritionTipTitle = styled.Text`
 export const NutritionTipContent = styled.Text`
   font-weight: medium;
   font-size: 18px;
-  color: ${({ theme }) => theme.colors.darkGray};
+  color: ${(props) => props.theme.colors.darkGray};
   line-height: 25px;
   padding-top: 10px;
 `

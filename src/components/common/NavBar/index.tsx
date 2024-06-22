@@ -3,7 +3,10 @@ import { Container, Icon, IconButton } from './styles'
 import { useNavigation } from '@react-navigation/native'
 import { type PropsStack } from '../../../routes'
 
-import { HomeIcon, DiaryIcon, RecipesIcon, ProfileIcon } from '@icons'
+import HomeIcon from '@icons/home-icon-p.png'
+import DiaryIcon from '@icons/diary-icon-p.png'
+import RecipesIcon from '@icons/recipes-icon-p.png'
+import ProfileIcon from '@icons/profile-icon-p.png'
 
 const NavBar = () => {
   const navigation = useNavigation<PropsStack>()
