@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const baseURL = 'http://192.168.1.2:3000'
-
 const api = axios.create({
-  baseURL,
-  validateStatus: (status) => status >= 200 && status <= 500
+  baseURL: 'http://10.0.0.113:3000',
+  validateStatus: (status) => status >= 200 && status <= 500,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 })
 
 export default api

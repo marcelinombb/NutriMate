@@ -1,20 +1,14 @@
 import api from './api'
-
-interface Recipe {
-  _id: string
-  name: string
-  description: string
-  calories: number
-  proteins: string
-  carbos: string
-  fat: string
-  timePrepare: string
-}
+import { type Recipe } from 'src/entitites/Recipe'
 
 const recipeService = {
   getRecipes: async () => {
+   try {
     const res = await api.get<Recipe[]>('/recipes')
     return res
+   } catch (error) {
+    console.log(error);
+   }
   }
 }
 export default recipeService

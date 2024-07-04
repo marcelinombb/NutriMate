@@ -5,12 +5,13 @@ import {
   ContainerMacro,
   MacroIcon,
   MacroNumber,
+  MealPhoto,
   TitleCard
 } from './styles'
 import CaloriesIcon from '@icons/fire-p.png'
 import ProteinIcon from '@icons/muscle-p.png'
 import TimeIcon from '@icons/time-p.png'
-import { View } from 'react-native'
+import { ImageSourcePropType, View } from 'react-native'
 
 export interface RecipeCardProps {
   _id: string
@@ -21,27 +22,28 @@ export interface RecipeCardProps {
   calories: string
   proteins: string
   timePrepare: string
+  image: ImageSourcePropType
 }
 
 const RecipeCard = (props: Partial<RecipeCardProps>) => {
   return (
     <Container isLast={props.isLast}>
       <Card height={props.height}>
-        {props.children}
+        <MealPhoto source={props.image} />
         <View style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <TitleCard>Avocado with Toast</TitleCard>
+          <TitleCard>{props.title}</TitleCard>
           <View style={{ display: 'flex', flexDirection: 'row' }}>
             <ContainerMacro>
               <MacroIcon source={ProteinIcon} />
-              <MacroNumber>15g</MacroNumber>
+              <MacroNumber>{props.proteins}</MacroNumber>
             </ContainerMacro>
             <ContainerMacro>
               <MacroIcon source={CaloriesIcon} />
-              <MacroNumber>450</MacroNumber>
+              <MacroNumber>{props.calories}</MacroNumber>
             </ContainerMacro>
             <ContainerMacro>
               <MacroIcon source={TimeIcon} />
-              <MacroNumber>15m</MacroNumber>
+              <MacroNumber>{props.timePrepare}</MacroNumber>
             </ContainerMacro>
           </View>
         </View>
