@@ -11,7 +11,7 @@ import {
 import CaloriesIcon from '@icons/fire-p.png'
 import ProteinIcon from '@icons/muscle-p.png'
 import TimeIcon from '@icons/time-p.png'
-import { ImageSourcePropType, View } from 'react-native'
+import { type ImageSourcePropType, View } from 'react-native'
 
 export interface RecipeCardProps {
   _id: string
@@ -35,7 +35,7 @@ const RecipeCard = (props: Partial<RecipeCardProps>) => {
           <View style={{ display: 'flex', flexDirection: 'row' }}>
             <ContainerMacro>
               <MacroIcon source={ProteinIcon} />
-              <MacroNumber>{props.proteins}</MacroNumber>
+              <MacroNumber>{props.proteins}g</MacroNumber>
             </ContainerMacro>
             <ContainerMacro>
               <MacroIcon source={CaloriesIcon} />
@@ -43,7 +43,7 @@ const RecipeCard = (props: Partial<RecipeCardProps>) => {
             </ContainerMacro>
             <ContainerMacro>
               <MacroIcon source={TimeIcon} />
-              <MacroNumber>{props.timePrepare}</MacroNumber>
+              <MacroNumber>{props.timePrepare}m</MacroNumber>
             </ContainerMacro>
           </View>
         </View>

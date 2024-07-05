@@ -1,18 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { Children, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/common/NavBar'
 import { Container } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
 import RecipeCard, { type RecipeCardProps } from 'src/components/RecipeCard'
-import meal from '@images/cleanprotein.png'
-import { MealPhoto } from 'src/components/RecipeCard/styles'
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import { FlatList, ListRenderItem, View } from 'react-native'
+import { FlatList } from 'react-native'
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { Recipe } from 'src/entitites/Recipe'
 import recipeService from 'src/services/recipeService'
-
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState<Recipe[] | []>([])
@@ -20,13 +17,14 @@ const Recipes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await recipeService.getRecipes();
+        const response = await recipeService.getRecipes()
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         setRecipes(response?.data ?? [])
       } catch (error) {
         console.error('Error fetching data:', error)
       }
     }
-    //@ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetchData()
   }, [])
 
@@ -38,10 +36,8 @@ const Recipes = () => {
       calories={item.calories}
       proteins={item.proteins}
       timePrepare={item.timePrepare}
-      image={meal}
-    >
-
-    </RecipeCard>
+      image={{ uri: item.picture }}
+    />
   )
   return (
     <Container>

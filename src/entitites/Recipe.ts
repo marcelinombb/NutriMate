@@ -2,8 +2,8 @@ export interface Recipe {
   id: string
   name: string
   description: string
-  calories: string
   picture: string
+  calories: string
   proteins: string
   carbos: string
   fat: string
