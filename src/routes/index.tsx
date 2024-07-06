@@ -9,6 +9,8 @@ import Home from '../pages/Home'
 import Profile from '../pages/Profile'
 import Recipes from '../pages/Recipes'
 import Diary from '../pages/Diary'
+import RecipePage from '../pages/RecipePage'
+import { type Recipe } from 'src/entitites/Recipe'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type PropsNavigationStack = {
@@ -17,6 +19,7 @@ export type PropsNavigationStack = {
   Diary: undefined
   Recipes: undefined
   Profile: undefined
+  RecipePage: { recipe: Recipe }
 }
 
 const Stack = createNativeStackNavigator<PropsNavigationStack>()
@@ -34,6 +37,7 @@ const Routes = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Diary" component={Diary} />
         <Stack.Screen name="Recipes" component={Recipes} />
+        <Stack.Screen name="RecipePage" component={RecipePage} />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>

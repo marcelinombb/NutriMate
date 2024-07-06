@@ -1,4 +1,4 @@
-# NutriMate 
+# NutriMate
 
 Aplicação feita durante o desenvolvimento do Grupo de Estudos, como temática o "Criando o Primeiro Software" ministrado pelo Prof. Maurício Moreira Neto. Nesta aplicação realiza a administração de uma dieta no cotidiano
 
@@ -22,3 +22,6 @@ Aplicação feita durante o desenvolvimento do Grupo de Estudos, como temática 
 - ❌ Autenticação com JWT
 
 ## Rotas da API
+
+- ✔️ GET/recipes
+- ✔️ GET/recipes/:id

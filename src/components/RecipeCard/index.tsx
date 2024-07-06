@@ -11,7 +11,7 @@ import {
 import CaloriesIcon from '@icons/fire-p.png'
 import ProteinIcon from '@icons/muscle-p.png'
 import TimeIcon from '@icons/time-p.png'
-import { type ImageSourcePropType, View } from 'react-native'
+import { type ImageSourcePropType, TouchableOpacity, View } from 'react-native'
 
 export interface RecipeCardProps {
   _id: string
@@ -23,32 +23,35 @@ export interface RecipeCardProps {
   proteins: string
   timePrepare: string
   image: ImageSourcePropType
+  onPress?: () => void
 }
 
 const RecipeCard = (props: Partial<RecipeCardProps>) => {
   return (
-    <Container isLast={props.isLast}>
-      <Card height={props.height}>
-        <MealPhoto source={props.image} />
-        <View style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <TitleCard>{props.title}</TitleCard>
-          <View style={{ display: 'flex', flexDirection: 'row' }}>
-            <ContainerMacro>
-              <MacroIcon source={ProteinIcon} />
-              <MacroNumber>{props.proteins}g</MacroNumber>
-            </ContainerMacro>
-            <ContainerMacro>
-              <MacroIcon source={CaloriesIcon} />
-              <MacroNumber>{props.calories}</MacroNumber>
-            </ContainerMacro>
-            <ContainerMacro>
-              <MacroIcon source={TimeIcon} />
-              <MacroNumber>{props.timePrepare}m</MacroNumber>
-            </ContainerMacro>
+    <TouchableOpacity activeOpacity={0.85} onPress={props.onPress}>
+      <Container isLast={props.isLast}>
+        <Card height={props.height}>
+          <MealPhoto source={props.image} />
+          <View style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <TitleCard>{props.title}</TitleCard>
+            <View style={{ display: 'flex', flexDirection: 'row' }}>
+              <ContainerMacro>
+                <MacroIcon source={ProteinIcon} />
+                <MacroNumber>{props.proteins}g</MacroNumber>
+              </ContainerMacro>
+              <ContainerMacro>
+                <MacroIcon source={CaloriesIcon} />
+                <MacroNumber>{props.calories}</MacroNumber>
+              </ContainerMacro>
+              <ContainerMacro>
+                <MacroIcon source={TimeIcon} />
+                <MacroNumber>{props.timePrepare}m</MacroNumber>
+              </ContainerMacro>
+            </View>
           </View>
-        </View>
-      </Card>
-    </Container>
+        </Card>
+      </Container>
+    </TouchableOpacity>
   )
 }
 

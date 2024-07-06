@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/common/NavBar'
@@ -5,15 +6,19 @@ import { Container } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
 import RecipeCard, { type RecipeCardProps } from 'src/components/RecipeCard'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { FlatList } from 'react-native'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { Recipe } from 'src/entitites/Recipe'
 import recipeService from 'src/services/recipeService'
+import { useNavigation } from '@react-navigation/native'
+import { PropsStack } from 'src/routes'
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState<Recipe[] | []>([])
+  const navigation = useNavigation<PropsStack>()
 
+  const handleNavigate = (recipe: Recipe) => {
+    navigation.navigate('RecipePage', { recipe })
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,6 +42,9 @@ const Recipes = () => {
       proteins={item.proteins}
       timePrepare={item.timePrepare}
       image={{ uri: item.picture }}
+      onPress={() => {
+        handleNavigate(item)
+      }}
     />
   )
   return (
