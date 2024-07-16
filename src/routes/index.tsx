@@ -11,10 +11,12 @@ import Recipes from '../pages/Recipes'
 import Diary from '../pages/Diary'
 import RecipePage from '../pages/RecipePage'
 import { type Recipe } from 'src/entitites/Recipe'
+import CreateAccount from 'src/pages/CreateAccount'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type PropsNavigationStack = {
   Login: undefined
+  CreateAccount: undefined
   Home: undefined
   Diary: undefined
   Recipes: undefined
@@ -34,6 +36,7 @@ const Routes = () => {
         }}
       >
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Diary" component={Diary} />
         <Stack.Screen name="Recipes" component={Recipes} />
