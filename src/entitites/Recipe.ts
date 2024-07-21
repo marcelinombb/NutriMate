@@ -8,4 +8,6 @@ export interface Recipe {
   carbos: string
   fat: string
   timePrepare: string
+  createdAt: string
+  updatedAt: string
 }
