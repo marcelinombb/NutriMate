@@ -11,7 +11,7 @@ const userService = {
     password: string
   ) => {
     try {
-      const res = await api.post<User>('/register', {
+      const res = await api.post<User>('/user', {
         firstName,
         lastName,
         phone,
@@ -19,6 +19,14 @@ const userService = {
         email,
         password
       })
+      return res
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  update: async (userId: string, updatedFields: Partial<User>) => {
+    try {
+      const res = await api.patch<User>(`/user/${userId}`, updatedFields)
       return res
     } catch (error) {
       console.log(error)

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/indent */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable multiline-ternary */
@@ -13,8 +15,16 @@ import {
 import DefaultTitle from 'src/components/common/DefaultTitle'
 import DefaultButton from 'src/components/common/DefaultButton'
 import userService from 'src/services/userService'
+import { useNavigation } from '@react-navigation/native'
+import { type PropsNavigationStack } from 'src/routes'
+import { type NativeStackNavigationProp } from '@react-navigation/native-stack'
 
+type CreateAccountScreenNavigationProp = NativeStackNavigationProp<
+  PropsNavigationStack,
+  'CreateAccount'
+>
 const CreateAccount = () => {
+  const navigation = useNavigation<CreateAccountScreenNavigationProp>()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -47,14 +57,20 @@ const CreateAccount = () => {
 
     try {
       const res = await userService.register(
-        'John',
-        'Doe',
+        email,
+        email,
         '+5585987654321',
-        '1997-08-03 21:00:00-03',
+        new Date().toISOString(),
         email,
         password
       )
       console.log('Account created:', res?.data)
+      const userId = res?.data?.id
+      if (userId) {
+        navigation.navigate('SetNamePage', { userId })
+      } else {
+        setErrorMessage('Failed to retrieve user ID. Please try again.')
+      }
     } catch (error) {
       setErrorMessage('Failed to create account. Please try again.')
     }
