@@ -5,7 +5,7 @@ export interface User {
   profilePhoto: string
   phone: string
   birth: string
-  email: string
+  email: Date
   password: string
   createdAt: string
   updatedAt: string
