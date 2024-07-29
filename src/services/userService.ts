@@ -31,6 +31,15 @@ const userService = {
     } catch (error) {
       console.log(error)
     }
+  },
+  list: async (): Promise<User[]> => {
+    try {
+      const res = await api.get<User[]>('/users')
+      return res.data
+    } catch (error) {
+      console.error('Error fetching users:', error)
+      throw error
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/indent */
 /* eslint-disable @typescript-eslint/no-misused-promises */
@@ -18,6 +19,7 @@ import userService from 'src/services/userService'
 import { useNavigation } from '@react-navigation/native'
 import { type PropsNavigationStack } from 'src/routes'
 import { type NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { type User } from 'src/entitites/User'
 
 type CreateAccountScreenNavigationProp = NativeStackNavigationProp<
   PropsNavigationStack,
@@ -56,6 +58,13 @@ const CreateAccount = () => {
     }
 
     try {
+      const users: User[] = await userService.list()
+      const emailExists = users.some((user: any) => user.email === email)
+
+      if (emailExists) {
+        setErrorMessage('Email already exists!')
+        return
+      }
       const res = await userService.register(
         email,
         email,
@@ -81,7 +90,14 @@ const CreateAccount = () => {
         <DefaultTitle fontSize={28} title="Create Account" />
         <Subtitle>Enter your details to continue</Subtitle>
         {errorMessage !== '' ? (
-          <Subtitle style={{ paddingTop: 10, color: 'red' }}>
+          <Subtitle
+            style={{
+              marginRight: 15,
+              paddingLeft: 15,
+              paddingTop: 10,
+              color: 'red'
+            }}
+          >
             {errorMessage}
           </Subtitle>
         ) : null}

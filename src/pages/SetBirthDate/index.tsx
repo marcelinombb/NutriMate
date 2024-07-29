@@ -45,10 +45,7 @@ const SetBirthDatePage = () => {
       return
     }
     const updatedField = {
-      birth: moment
-        .utc(birth, 'DD/MM/YYYY')
-        .set({ hour: 3, minute: 5 })
-        .format()
+      birth: moment(birth, 'DD/MM/YYYY').toISOString()
     }
     try {
       const res = await userService.update(userId, updatedField)
@@ -70,7 +67,12 @@ const SetBirthDatePage = () => {
         <DefaultTitle fontSize={28} title="Enter Your Birth Date" />
         <Subtitle>Enter your birth date to continue</Subtitle>
         {errorMessage !== '' ? (
-          <Subtitle style={{ paddingTop: 10, color: 'red' }}>
+          <Subtitle
+            style={{
+              paddingTop: 10,
+              color: 'red'
+            }}
+          >
             {errorMessage}
           </Subtitle>
         ) : null}
