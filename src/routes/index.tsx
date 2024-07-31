@@ -16,11 +16,13 @@ import SetNamePage from 'src/pages/SetName'
 import SetPhonePage from 'src/pages/SetPhone'
 import SuccessPage from 'src/pages/Success'
 import SetBirthDatePage from 'src/pages/SetBirthDate'
+import SignIn from 'src/pages/SignIn'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type PropsNavigationStack = {
   Login: undefined
   CreateAccount: undefined
+  SignIn: undefined
   Home: undefined
   Diary: undefined
   Recipes: undefined
@@ -45,6 +47,7 @@ const Routes = () => {
       >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SetNamePage" component={SetNamePage} />
         <Stack.Screen name="SetPhonePage" component={SetPhonePage} />
         <Stack.Screen name="SetBirthDatePage" component={SetBirthDatePage} />

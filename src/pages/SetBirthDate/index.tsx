@@ -50,7 +50,7 @@ const SetBirthDatePage = () => {
     try {
       const res = await userService.update(userId, updatedField)
       console.log('Birth date set:', res?.data)
-      navigation.navigate('SuccessPage')
+      navigation.navigate('SignIn')
     } catch (error) {
       setErrorMessage('Failed to set birth date. Please try again.')
     }
