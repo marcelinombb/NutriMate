@@ -73,8 +73,8 @@ const CreateAccount = () => {
         email,
         password
       )
-      console.log('Account created:', res?.data)
-      const userId = res?.data?.id
+      console.log('Account created:', { res })
+      const userId = res.id
       if (userId) {
         navigation.navigate('SetNamePage', { userId })
       } else {

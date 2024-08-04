@@ -48,8 +48,10 @@ const SetNamePage = () => {
       lastName
     }
     try {
+      console.log(userId)
+      console.log(updatedFields)
       const res = await userService.update(userId, updatedFields)
-      console.log('Name setted:', res?.data)
+      console.log('Name setted:', { res })
       navigation.navigate('SetPhonePage', { userId })
     } catch (error) {
       setErrorMessage('Failed to create account. Please try again.')
