@@ -18,7 +18,7 @@ import PlusCircleIcon from '@icons/plusCircle.png'
 import { MealPhoto } from 'src/components/RecipeCard/styles'
 
 const Diary = () => {
-  const data = new Array(10)
+  const data = new Array(0)
   return (
     <Container>
       <DefaultTitle fontSize={20} title="Diary" />
