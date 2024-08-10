@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "^3.2.1",
+    "@react-native-async-storage/async-storage": "^1.24.0",
     "@react-navigation/native": "^6.1.14",
     "@react-navigation/native-stack": "^6.9.22",
     "@types/styled-components": "^5.1.26",
