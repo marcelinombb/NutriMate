@@ -1,3 +1,5 @@
+import { type Meal } from './Meal'
+
 export interface User {
   id: string
   firstName: string
@@ -9,4 +11,5 @@ export interface User {
   password: string
   createdAt: string
   updatedAt: string
+  meals: Meal[]
 }

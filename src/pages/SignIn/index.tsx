@@ -80,7 +80,7 @@ const SignIn = () => {
           </InputContainer>
           <InputContainer>
             <Input
-              placeholder="Email address"
+              placeholder="Password"
               placeholderTextColor="#C0C0C1"
               secureTextEntry={true}
               value={password}

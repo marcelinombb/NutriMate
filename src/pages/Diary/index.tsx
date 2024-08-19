@@ -1,4 +1,14 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/member-delimiter-style */
+/* eslint-disable @typescript-eslint/no-base-to-string */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/common/NavBar'
 import {
   CenterSubTitle,
@@ -11,14 +21,53 @@ import {
 } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
-import RecipeCard from 'src/components/RecipeCard'
 import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
 import meal from '@images/breakfast-photo.jpg'
 import PlusCircleIcon from '@icons/plusCircle.png'
-import { MealPhoto } from 'src/components/RecipeCard/styles'
+import MealCard from 'src/components/MealCard'
+import mealService from 'src/services/mealService'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { type Meal } from 'src/entitites/Meal'
 
 const Diary = () => {
-  const data = new Array(0)
+  const [meals, setMeals] = useState<Meal[]>([])
+  const [userId, setUserId] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let id = userId
+        if (!id) {
+          id = await AsyncStorage.getItem('userId')
+          setUserId(id)
+        }
+
+        if (id) {
+          const response = await mealService.getMealByUserId(id)
+          console.log(response ?? [])
+          setMeals(response ?? [])
+        } else {
+          console.error('User ID not found')
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    fetchData()
+  }, [userId])
+
+  const renderItem = ({ item, index }: { item: Meal; index: number }) => (
+    <MealCard
+      isLast={index === meals.length - 1}
+      height={100}
+      name={item.name}
+      icon={{ uri: item.icon }}
+      onPressContainer={() => {}}
+      onPressAdd={() => {}}
+    />
+  )
+
   return (
     <Container>
       <DefaultTitle fontSize={20} title="Diary" />
@@ -38,40 +87,9 @@ const Diary = () => {
         </Section>
       </IndicatorContainer>
       <FlatList
-        data={data}
-        renderItem={({ item, index }) => {
-          return (
-            <RecipeCard isLast={index === data.length - 1} height={74}>
-              <MealPhoto source={meal} />
-              <View
-                style={{
-                  flex: 1,
-                  width: 'auto',
-                  marginLeft: 15,
-                  marginRight: 15,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <View>
-                  <Text style={{ fontWeight: 'medium', fontSize: 24 }}>
-                    Breakfast
-                  </Text>
-                  <Text style={{ fontSize: 10 }}>23% / 412 kcal</Text>
-                </View>
-                <View style={{}}>
-                  <TouchableOpacity>
-                    <Image
-                      source={PlusCircleIcon}
-                      style={{ width: 35, height: 35 }}
-                    />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </RecipeCard>
-          )
-        }}
+        data={meals}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
       />
       <NavBar />
     </Container>
