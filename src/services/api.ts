@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { API_URL } from '@env';
 
 const api = axios.create({
-  baseURL: 'http://192.168.1.3:3001',
+  baseURL: API_URL,
   validateStatus: (status) => status >= 200 && status <= 500,
   headers: {
     'Content-Type': 'application/json'
