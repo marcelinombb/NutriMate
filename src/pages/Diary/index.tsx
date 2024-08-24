@@ -44,7 +44,7 @@ const Diary = () => {
 
         if (id) {
           const response = await mealService.getMealByUserId(id)
-          console.log(response ?? [])
+          
           setMeals(response ?? [])
         } else {
           console.error('User ID not found')

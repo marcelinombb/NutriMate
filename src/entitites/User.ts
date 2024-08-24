@@ -11,5 +11,4 @@ export interface User {
   password: string
   createdAt: string
   updatedAt: string
-  meals: Meal[]
 }
