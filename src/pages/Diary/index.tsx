@@ -28,10 +28,13 @@ import MealCard from 'src/components/MealCard'
 import mealService from 'src/services/mealService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { type Meal } from 'src/entitites/Meal'
+import { useNavigation } from '@react-navigation/native'
+import { PropsStack } from 'src/routes'
 
 const Diary = () => {
   const [meals, setMeals] = useState<Meal[]>([])
   const [userId, setUserId] = useState<string | null>(null)
+  const navigation = useNavigation<PropsStack>()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,7 +66,9 @@ const Diary = () => {
       height={100}
       name={item.name}
       icon={{ uri: item.icon }}
-      onPressContainer={() => {}}
+      onPressContainer={() => {
+        navigation.navigate('DiaryMealRecipes', {meal: item})
+      }}
       onPressAdd={() => {}}
     />
   )

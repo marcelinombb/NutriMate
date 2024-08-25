@@ -3,6 +3,7 @@
 import { type Meal } from 'src/entitites/Meal'
 import api from './api'
 import { type User } from 'src/entitites/User'
+import { Recipe } from 'src/entitites/Recipe'
 
 const mealService = {
   getMealByUserId: async (userId: string): Promise<Meal[]> => {
@@ -11,7 +12,19 @@ const mealService = {
       return res.data
     } catch (error: any) {
       console.error(
-        'Error fetching user by ID:',
+        'Error fetching user meal by ID:',
+        error.response?.data || error.message
+      )
+      throw error
+    }
+  },
+  getRecipesByMeal: async (mealId: string): Promise<Recipe[]> => {
+    try {
+      const res = await api.get<Recipe[]>(`/user/meals/recipes/${mealId}`)
+      return res.data
+    } catch (error: any) {
+      console.error(
+        'Error fetching meal recipes by ID:',
         error.response?.data || error.message
       )
       throw error
