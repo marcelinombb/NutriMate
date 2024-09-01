@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { type Meal } from 'src/entitites/Meal'
 import api from './api'
-import { type User } from 'src/entitites/User'
 import { Recipe } from 'src/entitites/Recipe'
 
 const mealService = {
@@ -27,6 +27,15 @@ const mealService = {
         'Error fetching meal recipes by ID:',
         error.response?.data || error.message
       )
+      throw error
+    }
+  },
+  addMeal: async (meal: Meal): Promise<Meal> => {
+    try {
+      const res = await api.post<Meal>('/user/meals', meal)
+      return res.data
+    } catch (error: any) {
+      console.error('Error adding meal:', error.response?.data || error.message)
       throw error
     }
   }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/member-delimiter-style */
 /* eslint-disable @typescript-eslint/no-base-to-string */
@@ -11,17 +12,30 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/common/NavBar'
 import {
+  ActionButton,
+  ActionButtonText,
+  ButtonContainer,
   CenterSubTitle,
   CenterTitle,
   Container,
+  FormContainer,
   IndicatorContainer,
+  ModalInput,
+  ModalLabel,
   Section,
   SideSubTitle,
   SideTitle
 } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
-import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
+import {
+  FlatList,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Pressable
+} from 'react-native'
 import meal from '@images/breakfast-photo.jpg'
 import PlusCircleIcon from '@icons/plusCircle.png'
 import MealCard from 'src/components/MealCard'
@@ -29,11 +43,15 @@ import mealService from 'src/services/mealService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { type Meal } from 'src/entitites/Meal'
 import { useNavigation } from '@react-navigation/native'
-import { PropsStack } from 'src/routes'
+import { type PropsStack } from 'src/routes'
+import DefaultButton from 'src/components/common/DefaultButton'
+import AddMealModal from 'src/components/AddMealModal'
 
 const Diary = () => {
   const [meals, setMeals] = useState<Meal[]>([])
   const [userId, setUserId] = useState<string | null>(null)
+  const [mealName, setMealName] = useState('')
+  const [modalOpen, setModalOpen] = useState(false)
   const navigation = useNavigation<PropsStack>()
 
   useEffect(() => {
@@ -44,10 +62,8 @@ const Diary = () => {
           id = await AsyncStorage.getItem('userId')
           setUserId(id)
         }
-
         if (id) {
           const response = await mealService.getMealByUserId(id)
-          
           setMeals(response ?? [])
         } else {
           console.error('User ID not found')
@@ -56,7 +72,6 @@ const Diary = () => {
         console.error('Error fetching data:', error)
       }
     }
-
     fetchData()
   }, [userId])
 
@@ -67,11 +82,25 @@ const Diary = () => {
       name={item.name}
       icon={{ uri: item.icon }}
       onPressContainer={() => {
-        navigation.navigate('DiaryMealRecipes', {meal: item})
+        navigation.navigate('DiaryMealRecipes', { meal: item })
       }}
       onPressAdd={() => {}}
     />
   )
+
+  const handleAddMeal = async () => {
+    try {
+      if (!mealName) {
+        console.error('Meal name is required')
+        return
+      }
+      console.log('Meal created:', mealName)
+      setMealName('')
+      setModalOpen(false)
+    } catch (error) {
+      console.error('Error creating meal:', error)
+    }
+  }
 
   return (
     <Container>
@@ -91,6 +120,46 @@ const Diary = () => {
           <SideSubTitle>Remaining</SideSubTitle>
         </Section>
       </IndicatorContainer>
+      <DefaultButton
+        backgroundColor={'#6161A9'}
+        text={'Add New Meal'}
+        marginVertical={20}
+        buttonHandle={() => {
+          setModalOpen(true)
+        }}
+      />
+      <AddMealModal isOpen={modalOpen}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            width: '100%',
+            padding: 16,
+            borderRadius: 25
+          }}
+        >
+          <Pressable onPress={() => setModalOpen(false)}>
+            <Text style={{ marginLeft: '85%' }}>Close</Text>
+          </Pressable>
+          <FormContainer>
+            <ModalLabel>Meal Name:</ModalLabel>
+            <ModalInput
+              value={mealName}
+              onChangeText={(text) => setMealName(text)}
+            />
+          </FormContainer>
+          <ButtonContainer>
+            <ActionButton
+              onPress={() => {
+                // Aqui você pode adicionar a lógica para criar a refeição
+
+                handleAddMeal()
+              }}
+            >
+              <ActionButtonText>Create Meal</ActionButtonText>
+            </ActionButton>
+          </ButtonContainer>
+        </View>
+      </AddMealModal>
       <FlatList
         data={meals}
         renderItem={renderItem}

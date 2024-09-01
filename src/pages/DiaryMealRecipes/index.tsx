@@ -31,7 +31,7 @@ const DiaryMealRecipes = () => {
         console.error('Error fetching data:', error)
       }
     }
-    fetchData()
+    void fetchData()
   }, [])
 
   const renderItem = ({ item }: { item: Recipe }) => (

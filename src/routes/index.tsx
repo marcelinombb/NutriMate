@@ -17,7 +17,7 @@ import SetPhonePage from 'src/pages/SetPhone'
 import SuccessPage from 'src/pages/Success'
 import SetBirthDatePage from 'src/pages/SetBirthDate'
 import SignIn from 'src/pages/SignIn'
-import { Meal } from 'src/entitites/Meal'
+import { type Meal } from 'src/entitites/Meal'
 import DiaryMealRecipes from 'src/pages/DiaryMealRecipes'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
@@ -30,7 +30,7 @@ export type PropsNavigationStack = {
   Recipes: undefined
   Profile: undefined
   RecipePage: { recipe: Recipe }
-  DiaryMealRecipes: {meal: Meal }
+  DiaryMealRecipes: { meal: Meal }
   SetNamePage: { userId: string }
   SetPhonePage: { userId: string }
   SetBirthDatePage: { userId: string }
