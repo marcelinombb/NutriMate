@@ -85,14 +85,20 @@ const Diary = () => {
         console.error('Meal name is required')
         return
       }
-      // Inserir a lógica de criação de refeição
+      const iconFileName =
+        mealName
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/ /g, '_') + '_icon.png'
       const createdMeal = await mealService.addMeal(
         // Somente para exemplo
-        mealName.toLowerCase().toString() + '_icon.png',
+        iconFileName,
         mealName,
         userId ?? ''
       )
       console.log('Meal created:', createdMeal)
+      setMeals((prevMeals) => [...prevMeals, createdMeal])
       setMealName('')
       setModalOpen(false)
     } catch (error) {
