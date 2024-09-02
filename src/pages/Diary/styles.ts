@@ -45,15 +45,19 @@ export const ButtonContainer = styled.View`
 `
 
 export const ModalLabel = styled.Text`
-  font-size: 16px;
+  font-size: 26px;
   margin-bottom: 8px;
   font-weight: bold;
+  margin-left: 5px;
 `
 export const ModalInput = styled.TextInput`
+  height: 40px;
   border-width: 1px;
   border-color: #ccc;
   padding: 8px;
   border-radius: 8px;
+  font-size: 18px;
+  margin-bottom: -5px;
 `
 export const ActionButton = styled.Pressable`
   flex: 1;
@@ -67,4 +71,5 @@ export const ActionButton = styled.Pressable`
 export const ActionButtonText = styled.Text`
   color: white;
   font-weight: bold;
+  font-size: 16px;
 `

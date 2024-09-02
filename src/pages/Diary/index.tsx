@@ -28,16 +28,7 @@ import {
 } from './styles'
 import DefaultTitle from '../../components/common/DefaultTitle'
 import SearchBar from 'src/components/common/SearchBar'
-import {
-  FlatList,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  Pressable
-} from 'react-native'
-import meal from '@images/breakfast-photo.jpg'
-import PlusCircleIcon from '@icons/plusCircle.png'
+import { FlatList, Text, View, Pressable } from 'react-native'
 import MealCard from 'src/components/MealCard'
 import mealService from 'src/services/mealService'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -45,7 +36,7 @@ import { type Meal } from 'src/entitites/Meal'
 import { useNavigation } from '@react-navigation/native'
 import { type PropsStack } from 'src/routes'
 import DefaultButton from 'src/components/common/DefaultButton'
-import AddMealModal from 'src/components/AddMealModal'
+import AddMealModal from 'src/components/StandardModal'
 
 const Diary = () => {
   const [meals, setMeals] = useState<Meal[]>([])
@@ -94,7 +85,14 @@ const Diary = () => {
         console.error('Meal name is required')
         return
       }
-      console.log('Meal created:', mealName)
+      // Inserir a lógica de criação de refeição
+      const createdMeal = await mealService.addMeal(
+        // Somente para exemplo
+        mealName.toLowerCase().toString() + '_icon.png',
+        mealName,
+        userId ?? ''
+      )
+      console.log('Meal created:', createdMeal)
       setMealName('')
       setModalOpen(false)
     } catch (error) {
@@ -137,12 +135,18 @@ const Diary = () => {
             borderRadius: 25
           }}
         >
-          <Pressable onPress={() => setModalOpen(false)}>
-            <Text style={{ marginLeft: '85%' }}>Close</Text>
+          <Pressable
+            onPress={() => {
+              setMealName('')
+              setModalOpen(false)
+            }}
+          >
+            <Text style={{ textAlign: 'right', marginEnd: 5 }}>Close</Text>
           </Pressable>
           <FormContainer>
             <ModalLabel>Meal Name:</ModalLabel>
             <ModalInput
+              placeholder="Enter meal name..."
               value={mealName}
               onChangeText={(text) => setMealName(text)}
             />
@@ -150,8 +154,6 @@ const Diary = () => {
           <ButtonContainer>
             <ActionButton
               onPress={() => {
-                // Aqui você pode adicionar a lógica para criar a refeição
-
                 handleAddMeal()
               }}
             >

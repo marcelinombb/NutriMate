@@ -6,17 +6,17 @@ import React from 'react'
 import { KeyboardAvoidingView, Modal, type ModalProps } from 'react-native'
 import { Container } from './styles'
 
-interface AddMealModalProps extends ModalProps {
+interface StandardModalProps extends ModalProps {
   isOpen: boolean
   withInput?: boolean
 }
 
-const AddMealModal = ({
+const StandardModal = ({
   isOpen,
   withInput,
   children,
   ...rest
-}: AddMealModalProps) => {
+}: StandardModalProps) => {
   const content = withInput ? (
     <KeyboardAvoidingView
       style={{
@@ -27,7 +27,9 @@ const AddMealModal = ({
         paddingRight: 12,
         backgroundColor: '#18181b66'
       }}
-    ></KeyboardAvoidingView>
+    >
+      {children}
+    </KeyboardAvoidingView>
   ) : (
     <Container>{children}</Container>
   )
@@ -38,4 +40,4 @@ const AddMealModal = ({
   )
 }
 
-export default AddMealModal
+export default StandardModal

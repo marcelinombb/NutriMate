@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -30,9 +31,17 @@ const mealService = {
       throw error
     }
   },
-  addMeal: async (meal: Meal): Promise<Meal> => {
+  addMeal: async (
+    icon: string,
+    name: string,
+    userId: string
+  ): Promise<Meal> => {
     try {
-      const res = await api.post<Meal>('/user/meals', meal)
+      const res = await api.post<Meal>('/user/meals', {
+        icon,
+        name,
+        userId
+      })
       return res.data
     } catch (error: any) {
       console.error('Error adding meal:', error.response?.data || error.message)
