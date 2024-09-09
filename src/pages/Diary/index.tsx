@@ -93,7 +93,7 @@ const Diary = () => {
           .replace(/ /g, '_') + '_icon.png'
       const createdMeal = await mealService.addMeal(
         // Somente para exemplo
-        iconFileName,
+        'https://cdn-icons-png.flaticon.com/512/3595/3595881.png',
         mealName,
         userId ?? ''
       )

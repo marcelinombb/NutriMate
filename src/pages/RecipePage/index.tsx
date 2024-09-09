@@ -10,7 +10,9 @@ import {
   DescriptionText,
   MacroIcon,
   MacroTitle,
-  Title
+  Title,
+  VideoButton,
+  VideoButtonText
 } from './styles'
 import { type PropsNavigationStack } from 'src/routes'
 import { type RouteProp, useRoute } from '@react-navigation/native'
@@ -47,6 +49,9 @@ const RecipePage = () => {
       </ContainerAllMacros>
       <ContainerDescription>
         <DescriptionText>{recipe.description}</DescriptionText>
+        <VideoButton>
+          <VideoButtonText>Watch Video</VideoButtonText>
+        </VideoButton>
       </ContainerDescription>
       <NavBar />
     </Container>

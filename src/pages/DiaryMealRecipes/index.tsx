@@ -50,7 +50,7 @@ const DiaryMealRecipes = () => {
   )
   return (
     <Container>
-      <DefaultTitle fontSize={20} title={`${meal.name} - Recipes`} />
+      <DefaultTitle fontSize={20} title={`${meal.name}`} />
       <SearchBar />
       <FlatList
         data={recipes}
