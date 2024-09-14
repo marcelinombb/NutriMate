@@ -47,6 +47,19 @@ const mealService = {
       console.error('Error adding meal:', error.response?.data || error.message)
       throw error
     }
+  },
+  addRecipeToMeal: async (mealId: string, recipeId: string): Promise<void> => {
+    try {
+      await api.post(`/user/meals/${mealId}/recipes`, {
+        recipeId
+      })
+    } catch (error: any) {
+      console.error(
+        'Error adding recipe to meal:',
+        error.response?.data || error.message
+      )
+      throw error
+    }
   }
 }
 
