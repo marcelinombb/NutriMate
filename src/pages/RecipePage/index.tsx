@@ -117,15 +117,7 @@ const RecipePage = () => {
         <VideoButton onPress={handleModal}>
           <VideoButtonText>Add To Meal</VideoButtonText>
         </VideoButton>
-        <AddMealModal isOpen={modalOpen}>
-          <View
-            style={{
-              backgroundColor: 'white',
-              width: '100%',
-              padding: 16,
-              borderRadius: 25
-            }}
-          >
+        <AddMealModal isOpen={modalOpen} onClose={() => { setModalOpen(false) }}>
             <Text
               style={{
                 fontSize: 22,
@@ -142,14 +134,6 @@ const RecipePage = () => {
               renderItem={renderItem}
               keyExtractor={(item) => item.id.toString()}
             />
-            <Pressable
-              onPress={() => {
-                setModalOpen(false)
-              }}
-            >
-              <Text style={{ textAlign: 'right', marginEnd: 5 }}>Close</Text>
-            </Pressable>
-          </View>
         </AddMealModal>
       </ContainerDescription>
       <NavBar />

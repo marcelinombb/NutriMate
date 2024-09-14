@@ -3,18 +3,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-undef */
 import React from 'react'
-import { KeyboardAvoidingView, Modal, type ModalProps } from 'react-native'
+import { KeyboardAvoidingView, Modal, Text, Pressable, type ModalProps, View } from 'react-native'
 import { Container } from './styles'
 
 interface StandardModalProps extends ModalProps {
   isOpen: boolean
   withInput?: boolean
+  onClose: () => void
 }
 
 const StandardModal = ({
   isOpen,
   withInput,
   children,
+  onClose,
   ...rest
 }: StandardModalProps) => {
   const content = withInput ? (
@@ -31,7 +33,21 @@ const StandardModal = ({
       {children}
     </KeyboardAvoidingView>
   ) : (
-    <Container>{children}</Container>
+    <Container>
+      <View
+            style={{
+              backgroundColor: 'white',
+              width: '100%',
+              padding: 16,
+              borderRadius: 25
+            }}
+          >
+          <Pressable onPress={onClose}>
+            <Text style={{ textAlign: 'right', marginEnd: 5 }}>close</Text>
+          </Pressable>
+      {children}
+      </View>
+    </Container>
   )
   return (
     <Modal animationType="fade" transparent={true} visible={isOpen} {...rest}>

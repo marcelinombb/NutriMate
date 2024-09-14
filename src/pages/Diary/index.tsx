@@ -132,23 +132,7 @@ const Diary = () => {
           setModalOpen(true)
         }}
       />
-      <AddMealModal isOpen={modalOpen}>
-        <View
-          style={{
-            backgroundColor: 'white',
-            width: '100%',
-            padding: 16,
-            borderRadius: 25
-          }}
-        >
-          <Pressable
-            onPress={() => {
-              setMealName('')
-              setModalOpen(false)
-            }}
-          >
-            <Text style={{ textAlign: 'right', marginEnd: 5 }}>Close</Text>
-          </Pressable>
+      <AddMealModal isOpen={modalOpen} onClose={() => {setModalOpen(false)}}>
           <FormContainer>
             <ModalLabel>Meal Name:</ModalLabel>
             <ModalInput
@@ -166,7 +150,6 @@ const Diary = () => {
               <ActionButtonText>Create Meal</ActionButtonText>
             </ActionButton>
           </ButtonContainer>
-        </View>
       </AddMealModal>
       <FlatList
         data={meals}
