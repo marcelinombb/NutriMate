@@ -60,6 +60,21 @@ const mealService = {
       )
       throw error
     }
+  },
+
+  removeRecipeFromMeal: async (
+    mealId: string,
+    recipeId: string
+  ): Promise<void> => {
+    try {
+      await api.delete(`/user/meals/${mealId}/recipes/${recipeId}`)
+    } catch (error: any) {
+      console.error(
+        'Error removing recipe from meal:',
+        error.response?.data || error.message
+      )
+      throw error
+    }
   }
 }
 
