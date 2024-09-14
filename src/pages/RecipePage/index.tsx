@@ -28,7 +28,6 @@ import TimeIcon from '@icons/time-p.png'
 import FatIcon from '@icons/fat-solid-p.png'
 import { Pressable, View, Text, FlatList } from 'react-native'
 import AddMealModal from 'src/components/StandardModal'
-import MealCard from 'src/components/MealCard'
 import { type Meal } from 'src/entitites/Meal'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import mealService from 'src/services/mealService'
@@ -87,6 +86,7 @@ const RecipePage = () => {
       icon={{ uri: item.icon }}
       onPressAdd={() => {
         handleAddMealToRecipe(meals[index].id)
+        setModalOpen(false)
       }}
     />
   )

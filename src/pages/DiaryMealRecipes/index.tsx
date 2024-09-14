@@ -11,6 +11,7 @@ import { Recipe } from 'src/entitites/Recipe'
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 import { PropsNavigationStack, PropsStack } from 'src/routes'
 import mealService from 'src/services/mealService'
+import RecipeCardMeal from 'src/components/RecipeCardMeal'
 
 const DiaryMealRecipes = () => {
   const [recipes, setRecipes] = useState<Recipe[] | []>([])
@@ -35,7 +36,7 @@ const DiaryMealRecipes = () => {
   }, [])
 
   const renderItem = ({ item }: { item: Recipe }) => (
-    <RecipeCard
+    <RecipeCardMeal
       isLast={false}
       height={100}
       title={item.name}
