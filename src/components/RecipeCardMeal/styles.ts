@@ -4,12 +4,10 @@ import { type RecipeCardProps } from '.'
 export const Container = styled.View<Partial<RecipeCardProps>>`
   align-items: center;
   justify-content: center;
-  margin: 0 20px
-    ${(props) => {
-      return props.isLast ?? false ? 60 + 20 : 20
-    }}px
-    20px;
+  margin: 0 20px ${(props) => (props.isLast ?? false ? 60 + 20 : 20)}px 20px;
+  position: relative;
 `
+
 export const Card = styled.View<Partial<RecipeCardProps>>`
   display: flex;
   flex-direction: row;
@@ -18,7 +16,10 @@ export const Card = styled.View<Partial<RecipeCardProps>>`
   border-color: ${({ theme }) => theme.colors.lightGray};
   border-width: 2px;
   border-radius: 20px;
+  position: relative;
+  z-index: 1;
 `
+
 export const MealPhoto = styled.Image.attrs({
   resizeMode: 'cover'
 })`
@@ -28,6 +29,45 @@ export const MealPhoto = styled.Image.attrs({
   margin-top: 10px;
   margin-left: 10px;
 `
+
+export const HamburguerMenu = styled.Image.attrs({})`
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  z-index: 10;
+`
+
+export const ModalOverlay = styled.TouchableOpacity`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`
+
+export const ModalContent = styled.View`
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  width: 150px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  shadow-color: #000;
+  shadow-offset: 0px 2px;
+  shadow-opacity: 0.25;
+  shadow-radius: 3.84px;
+  elevation: 5;
+`
+
+export const MenuItem = styled.TouchableOpacity`
+  padding: 10px 0;
+`
+
+export const MenuText = styled.Text`
+  color: black;
+`
+
 export const TitleCard = styled.Text`
   padding-top: 15px;
   padding-left: 10px;
@@ -50,12 +90,4 @@ export const MacroIcon = styled.Image.attrs({})`
 `
 export const MacroNumber = styled.Text`
   font-size: 13px;
-`
-export const HamburguerMenu = styled.Image.attrs({})`
-  height: 14px;
-  width: 1%;
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  padding-top: 10px;
 `

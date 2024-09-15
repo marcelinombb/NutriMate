@@ -132,24 +132,29 @@ const Diary = () => {
           setModalOpen(true)
         }}
       />
-      <AddMealModal isOpen={modalOpen} onClose={() => {setModalOpen(false)}}>
-          <FormContainer>
-            <ModalLabel>Meal Name:</ModalLabel>
-            <ModalInput
-              placeholder="Enter meal name..."
-              value={mealName}
-              onChangeText={(text) => setMealName(text)}
-            />
-          </FormContainer>
-          <ButtonContainer>
-            <ActionButton
-              onPress={() => {
-                handleAddMeal()
-              }}
-            >
-              <ActionButtonText>Create Meal</ActionButtonText>
-            </ActionButton>
-          </ButtonContainer>
+      <AddMealModal
+        isOpen={modalOpen}
+        onClose={() => {
+          setModalOpen(false)
+        }}
+      >
+        <FormContainer>
+          <ModalLabel>Meal Name:</ModalLabel>
+          <ModalInput
+            placeholder="Enter meal name..."
+            value={mealName}
+            onChangeText={(text) => setMealName(text)}
+          />
+        </FormContainer>
+        <ButtonContainer>
+          <ActionButton
+            onPress={() => {
+              handleAddMeal()
+            }}
+          >
+            <ActionButtonText>Create Meal</ActionButtonText>
+          </ActionButton>
+        </ButtonContainer>
       </AddMealModal>
       <FlatList
         data={meals}
