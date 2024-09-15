@@ -45,6 +45,8 @@ const RecipeCardMeal = (props: Partial<RecipeCardProps>) => {
     setModalVisible(!isModalVisible)
   }
 
+  const handleDeleteRecipeFromMeal = () => {}
+
   return (
     <TouchableOpacity activeOpacity={0.85} onPress={props.onPress}>
       <Container isLast={props.isLast}>
@@ -68,19 +70,23 @@ const RecipeCardMeal = (props: Partial<RecipeCardProps>) => {
             </View>
           </View>
           <View style={{ marginTop: 5, marginLeft: 30 }}>
-            {/* Ícone do menu hambúrguer */}
             <TouchableOpacity onPress={toggleModal} style={{ paddingTop: 0 }}>
               <Text style={{ fontSize: 18 }}>☰</Text>
             </TouchableOpacity>
-
-            {/* Modal para as opções Editar e Excluir */}
             {isModalVisible && (
               <>
                 <ModalOverlay onPress={toggleModal} />
-                <ModalContent>
-                  <MenuItem onPress={() => alert('Editar')}>
-                    <MenuText>Editar</MenuText>
-                  </MenuItem>
+                <ModalContent
+                  style={{
+                    shadowOffset: {
+                      width: 0,
+                      height: 2
+                    },
+                    shadowOpacity: 0.55,
+                    shadowRadius: 4.65,
+                    elevation: 5
+                  }}
+                >
                   <MenuItem onPress={() => alert('Excluir')}>
                     <MenuText>Excluir</MenuText>
                   </MenuItem>

@@ -53,11 +53,7 @@ export const ModalContent = styled.View`
   background-color: white;
   padding: 10px;
   border-radius: 5px;
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  shadow-opacity: 0.25;
-  shadow-radius: 3.84px;
-  elevation: 5;
+  box-shadow: 0px 2px 3.84px rgba(0, 0, 0, 0.55);
 `
 
 export const MenuItem = styled.TouchableOpacity`
@@ -67,7 +63,6 @@ export const MenuItem = styled.TouchableOpacity`
 export const MenuText = styled.Text`
   color: black;
 `
-
 export const TitleCard = styled.Text`
   padding-top: 15px;
   padding-left: 10px;
