@@ -18,7 +18,7 @@ Aplicação feita durante o desenvolvimento do Grupo de Estudos, como temática 
 
 ## Funcionalidades implementadas
 
-- ❌ Registro e login de usuários
+- ✔️ Registro e login de usuários
 - ❌ Autenticação com JWT
 
 ## Rotas da API
